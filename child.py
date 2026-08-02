@@ -50,7 +50,11 @@ class Child:
 
 
     def __str__(self):
-        return f'Child {self.__child_id} | {self.__age_group} | Fee: {self.__fee} | '
+        if self.__guardian_name != "":
+            return f'Child {self.__child_id} | {self.__age_group} | Fee: {self.__fee:.1f} | Checked In by {self.__guardian_name}'
+        else:
+            return f'Child {self.__child_id} | {self.__age_group} | Fee: {self.__fee:.1f} | Not Checked In' 
+        
 
 
 
