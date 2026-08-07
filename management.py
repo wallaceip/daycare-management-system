@@ -61,6 +61,8 @@ def add_child(child_list):
                 child_list.append(new_child)
                 print('Child added.')
 
+                return child_list
+
             else:
                 print('Fee must be greater than 0.')
         else:
@@ -79,29 +81,66 @@ def remove_child(child_list):
     if index != -1:
         child_list.pop(index)  # pop() removes the item at the specified index position
         print('Child removed.')
+
+        return child_list
     else:
         print('Child not found.')
 
 def check_in_child(child_list):
     child_id_input = input('Enter child ID: ')
     index = find_child_index(child_list, child_id_input)
-    
-    if index != -1:
-        guardian_name_input = input('Enter guardian name: ')
-        # Perform check-in logic on child_list[index]
+    guardian_name_input = input('Enter guardian name: ')
+    if guardian_name_input != "":
+        if index != -1:
+            target_child = child_list[index]
+            if target_child.is_present() == False:
+                target_child.check_in(guardian_name_input)
+                print('Child checked in.')
+
+                return child_list
+            
+            else:
+                print('Child is already checked in.')
+        else:
+            print('Child not found.')
     else:
         print('Invalid input. Please enter valid values.')
 
 def check_out_child(child_list):
     ''''''
-    pass
+    child_id_input = input('Enter child ID: ')
+    index = find_child_index(child_list, child_id_input)
+    if index != -1:
+        target_child = child_list[index]
+        if target_child.is_present() == True:
+            target_child.check_out()
+            print('Child checked out.')
+
+            return child_list
+        
+        else:
+            print('Child is already not checked in.')
+
+    else:
+        print('Child not found.')
 
 def view_all_children(child_list):
     ''''''
-    pass
+    if child_list != []:
+        for child in child_list:
+            print(child)
+    else:
+        print('No children records available.')
+
 
 def main():
     ''''''
-    pass
+    print('*'* 50)
+    print(f'{'Welcome to YYC Daycare System':^50s}')
+    print('*'* 50)
+    child_list = load_children()
+    print(f'{len(child_list)} child records loaded')
+    
+    
 
 
