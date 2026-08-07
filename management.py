@@ -174,7 +174,7 @@ def main_menu():
             user_selection = int(user_input)
 
         if user_selection < 1 or user_selection > 6:
-            print('Invalid option. Please try again.\n')
+            print('Invalid option.\n')
 
     return user_selection 
 
@@ -202,7 +202,7 @@ def main():
                 view_all_children(child_list)
             case 6:
                 save_children(child_list)
-                print('Data saved. Goodbye.')
+                print('Data saved. Goodbye.\n')
 
     
 # Check if this file is being run directly by Python (rather than imported into another script)
