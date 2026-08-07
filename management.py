@@ -57,6 +57,7 @@ def add_child(child_list):
             if fee_input >= 0:
                 new_child = ch.Child(child_id_input, age_group_input, fee_input)
                 print('Child added.')
+
                 return child_list.append(new_child)
             else:
                 print('Fee must be greater than 0.')
@@ -68,11 +69,12 @@ def add_child(child_list):
 
 def remove_child(child_list):
     ''''''
-    child_id_list = [child.get_child_id() for child in child_list]
     child_id_input = input('Enter child ID to remove: ')
-    if child_id_input not in child_id_list:
+    for child in child_list:
+        if child.get_child_id() == child_id_input:
+            child_list.remove(child)
+    else:
         print('Child not found.')
-    if 
 
 def check_in_child(child_list):
     ''''''
