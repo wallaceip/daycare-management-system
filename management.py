@@ -47,37 +47,47 @@ def add_child(child_list):
     ''''''
     child_id_list = [child.get_child_id() for child in child_list]
     child_id_input = input('Enter child ID: ')
-    if child_id_input in child_id_list:
+    if child_id_input not in child_id_list:
+        
+        valid_age_group = ['Toddler', 'Preschool', 'School Age']
+        age_group_input = input('Enter age group: ')
+        if age_group_input in valid_age_group:
+            
+            fee_input = int(input('Enter daily fee: '))
+            if fee_input >= 0:
+                new_child = ch.Child(child_id_input, age_group_input, fee_input)
+                print('Child added.')
+                return child_list.append(new_child)
+            else:
+                print('Fee must be greater than 0.')
+        else:
+            print(f'Age group must be one of {valid_age_group}')
+    else:
         print('Child already exists.')
-
-    valid_age_group = ['Toddler', 'Preschool', 'School Age']
-    age_group_input = input('Enter age group: ')
-    if age_group_input not in valid_age_group:
-        print(f'Age group must be one of {valid_age_group}')
-
-    fee_input = int(input('Enter daily fee: '))
-    if fee_input <= 0:
-        print('Fee must be greater than 0.')
-
-    new_child = ch.Child(child_id_input, age_group_input, fee_input)
-    print('Child added.')
-
-    return child_list.append(new_child)
-
+  
 
 def remove_child(child_list):
-    pass
+    ''''''
+    child_id_list = [child.get_child_id() for child in child_list]
+    child_id_input = input('Enter child ID to remove: ')
+    if child_id_input not in child_id_list:
+        print('Child not found.')
+    if 
 
 def check_in_child(child_list):
+    ''''''
     pass
 
 def check_out_child(child_list):
+    ''''''
     pass
 
 def view_all_children(child_list):
+    ''''''
     pass
 
 def main():
+    ''''''
     pass
 
 
