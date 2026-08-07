@@ -21,7 +21,7 @@ def load_children(file_path='child.csv'):
 
     return child_list
 
-def save_children(file_path, child_list):
+def save_children(child_list, file_path='child.csv'):
     '''Save the updated list of Child objects back to a CSV file.'''
 
     with open(file_path, 'w') as f:
@@ -132,6 +132,32 @@ def view_all_children(child_list):
     else:
         print('No children records available.')
 
+def main_menu():
+    """Displays menu options and validates user selection input."""
+    main_menu_dict = {
+        1: 'Add Child',
+        2: 'Remove Child',
+        3: 'Check In Child',
+        4: 'Check Out Child',
+        5: 'View All Children',
+        6: 'Exit'
+    }
+
+    # Loop prompts user repeatedly until valid choice (1-5) is entered
+    user_selection = -1
+    while user_selection < 1 or user_selection > 5:
+        for key, value in main_menu_dict.items():
+            print(f'{key}) {value}')
+
+        user_input = input('Select option: ')
+        # Ensure user entered a number before attempting integer conversion
+        if user_input.isdigit():
+            user_selection = int(user_input)
+
+        if user_selection < 1 or user_selection > 5:
+            print('Invalid option. Please try again.\n')
+
+    return user_selection 
 
 def main():
     ''''''
@@ -140,7 +166,27 @@ def main():
     print('*'* 50)
     child_list = load_children()
     print(f'{len(child_list)} child records loaded')
-    
-    
+    user_selection = 0
+    while user_selection != 5:
+        user_selection = main_menu()
+        match user_selection:
+            case 1:
+                add_child(child_list)
+            case 2:
+                remove_child(child_list)
+            case 3:
+                check_in_child(child_list)
+            case 4:
+                check_out_child(child_list)
+            case 5:
+                view_all_children(child_list)
+            case 6:
+                save_children(child_list)
+                print('Data saved. Goodbye.')
 
+    
+# Check if this file is being run directly by Python (rather than imported into another script)
+# If running directly, execute the main() function to start the application
+if __name__ == "__main__":
+    main()
 
