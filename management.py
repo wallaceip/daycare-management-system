@@ -68,16 +68,27 @@ def add_child(child_list):
   
 
 def remove_child(child_list):
-    ''''''
+    '''Removes a child from the list of children using their child ID.'''
     child_id_input = input('Enter child ID to remove: ')
-    for child in child_list:
-        if child.get_child_id() == child_id_input:
-            child_list.remove(child)
+    
+    # Get the index of the child (-1 if not found)
+    index = find_child_index(child_list, child_id_input)
+    
+    if index != -1:
+        child_list.pop(index)  # pop() removes the item at the specified index position
+        print('Child removed.')
     else:
         print('Child not found.')
 
 def check_in_child(child_list):
     ''''''
+    child_id_list = [child.get_child_id() for child in child_list]
+    child_id_input = input('Enter child ID: ')
+    guardian_name_input = input('Enter guardian name: ')
+    if child_id_input in child_id_list:
+
+    else:
+        print('Invalid input. Please enter valid values.')
     pass
 
 def check_out_child(child_list):
