@@ -45,20 +45,22 @@ def find_child_index(child_list, child_id):
 
 def add_child(child_list):
     ''''''
-    child_id_list = [child.get_child_id() for child in child_list]
     child_id_input = input('Enter child ID: ')
-    if child_id_input not in child_id_list:
+    
+    # Use find_child_index instead of creating child_id_list
+    if find_child_index(child_list, child_id_input) == -1:
         
         valid_age_group = ['Toddler', 'Preschool', 'School Age']
         age_group_input = input('Enter age group: ')
+
         if age_group_input in valid_age_group:
-            
             fee_input = int(input('Enter daily fee: '))
+
             if fee_input >= 0:
                 new_child = ch.Child(child_id_input, age_group_input, fee_input)
+                child_list.append(new_child)
                 print('Child added.')
 
-                return child_list.append(new_child)
             else:
                 print('Fee must be greater than 0.')
         else:
@@ -81,15 +83,14 @@ def remove_child(child_list):
         print('Child not found.')
 
 def check_in_child(child_list):
-    ''''''
-    child_id_list = [child.get_child_id() for child in child_list]
     child_id_input = input('Enter child ID: ')
-    guardian_name_input = input('Enter guardian name: ')
-    if child_id_input in child_id_list:
-
+    index = find_child_index(child_list, child_id_input)
+    
+    if index != -1:
+        guardian_name_input = input('Enter guardian name: ')
+        # Perform check-in logic on child_list[index]
     else:
         print('Invalid input. Please enter valid values.')
-    pass
 
 def check_out_child(child_list):
     ''''''
@@ -104,13 +105,3 @@ def main():
     pass
 
 
-print("Testing getters:")
-
-child_list = load_children()
-for i in range(len(child_list)):
-    current_child = load_children('child.csv')[i]
-    print(f"Child ID: {current_child.get_child_id()}")
-    print(f"Age Group: {current_child.get_age_group()}")
-    print(f"Fee: {current_child.get_fee()}")
-    print(f"Guardian Name: {current_child.get_guardian_name()}")
-    print()
