@@ -2,8 +2,8 @@ import child as ch
 
 def load_children(file_path='child.csv'):
     '''Loads children data from a CSV file into a list of objects.'''
+
     child_list = []
-    
     with open(file_path) as f:
         # Read file contents and split into individual lines, stripping newlines (\n)
         children = f.read().splitlines()
@@ -22,10 +22,25 @@ def load_children(file_path='child.csv'):
     return child_list
 
 def save_children(file_path, child_list):
-    pass
+    '''Save the updated list of Child objects back to a CSV file.'''
+    with open(file_path, 'w') as f:
+        for child in child_list:
+            line = f"{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n"
+            f.write(line)
+
 
 def find_child_index(child_list, child_id):
-    pass
+    '''Find the index of the child provided the child id, returns -1 if not found.'''
+
+    index = 0
+    found_index = -1 # Default value if not found
+
+    for child in child_list:
+        if child.get_child_id() == child_id:
+            found_index = index
+        index += 1
+
+    return found_index
 
 def add_child(child_list):
     pass
@@ -47,6 +62,7 @@ def main():
 
 
 print("Testing getters:")
+
 child_list = load_children()
 for i in range(len(child_list)):
     current_child = load_children('child.csv')[i]
