@@ -126,9 +126,27 @@ def check_out_child(child_list):
 
 def view_all_children(child_list):
     ''''''
+    print('\nAll Children')
     if child_list != []:
         for child in child_list:
             print(child)
+
+        total_children_count = len(child_list)
+        checked_in_children_count = 0
+        for child in child_list:
+            if child.is_present():
+                checked_in_children_count += 1
+
+        not_checked_in_children_count = total_children_count - checked_in_children_count
+
+        print('\n'+'='* 50)
+        print(f'{'SUMMARY':^50s}')
+        print('='* 50)
+        print(f'Total Children: {total_children_count}')
+        print(f'Checked In: {checked_in_children_count}')
+        print(f'Not Checked In: {not_checked_in_children_count}')
+
+        return
     else:
         print('No children records available.')
 
@@ -145,6 +163,7 @@ def main_menu():
 
     # Loop prompts user repeatedly until valid choice (1-5) is entered
     user_selection = -1
+    print()
     while user_selection < 1 or user_selection > 5:
         for key, value in main_menu_dict.items():
             print(f'{key}) {value}')
@@ -161,6 +180,7 @@ def main_menu():
 
 def main():
     ''''''
+    print()
     print('*'* 50)
     print(f'{'Welcome to YYC Daycare System':^50s}')
     print('*'* 50)
