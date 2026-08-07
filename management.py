@@ -23,6 +23,7 @@ def load_children(file_path='child.csv'):
 
 def save_children(file_path, child_list):
     '''Save the updated list of Child objects back to a CSV file.'''
+
     with open(file_path, 'w') as f:
         for child in child_list:
             line = f"{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n"
@@ -43,7 +44,26 @@ def find_child_index(child_list, child_id):
     return found_index
 
 def add_child(child_list):
-    pass
+    ''''''
+    child_id_list = [child.get_child_id() for child in child_list]
+    child_id_input = input('Enter child ID: ')
+    if child_id_input in child_id_list:
+        print('Child already exists.')
+
+    valid_age_group = ['Toddler', 'Preschool', 'School Age']
+    age_group_input = input('Enter age group: ')
+    if age_group_input not in valid_age_group:
+        print(f'Age group must be one of {valid_age_group}')
+
+    fee_input = int(input('Enter daily fee: '))
+    if fee_input <= 0:
+        print('Fee must be greater than 0.')
+
+    new_child = ch.Child(child_id_input, age_group_input, fee_input)
+    print('Child added.')
+
+    return child_list.append(new_child)
+
 
 def remove_child(child_list):
     pass
