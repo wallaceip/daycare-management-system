@@ -89,7 +89,7 @@ def add_child(child_list):
   Returns:
       list: Updated list of Child objects.
   """
-  child_id_input = input("Enter child ID: ")  # Prompt user to enter child ID
+  child_id_input = input("Enter child ID: ").upper()  # Prompt user to enter child ID (Non case-sensitive)
 
   # Check if child ID is unique (not already present in list)
   if find_child_index(child_list, child_id_input) == -1:
@@ -138,7 +138,7 @@ def remove_child(child_list):
   """
   child_id_input = input(
       "Enter child ID to remove: "
-  )  # Prompt user for child ID to remove
+  ).upper()  # Prompt user for child ID (Non case-sensitive) to remove
 
   # Find child's index position using find_child_index helper
   index = find_child_index(child_list, child_id_input)
@@ -163,7 +163,7 @@ def check_in_child(child_list):
   Returns:
       list: Updated list of Child objects.
   """
-  child_id_input = input("Enter child ID: ")  # Prompt user for child ID
+  child_id_input = input("Enter child ID: ").upper()  # Prompt user for child ID (Non case-sensitive)
   index = find_child_index(
       child_list, child_id_input
   )  # Search for child index
@@ -207,7 +207,7 @@ def check_out_child(child_list):
   Returns:
       list: Updated list of Child objects.
   """
-  child_id_input = input("Enter child ID: ")  # Prompt user for child ID
+  child_id_input = input("Enter child ID: ").upper()  # Prompt user for child ID (Non case-sensitive)
   index = find_child_index(
       child_list, child_id_input
   )  # Search for child index
