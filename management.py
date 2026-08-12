@@ -2,7 +2,8 @@ import child as ch  # Import the child module containing the Child class definit
 
 
 def load_children(file_path="child.csv"):
-  """Loads children data from a CSV file into a list of Child objects.
+  """
+  Loads children data from a CSV file into a list of Child objects.
 
   Parameters:
       file_path (str): Path to the CSV file containing child records.
@@ -34,7 +35,8 @@ def load_children(file_path="child.csv"):
 
 
 def save_children(child_list, file_path="child.csv"):
-  """Saves the updated list of Child objects back to a CSV file.
+  """
+  Saves the updated list of Child objects back to a CSV file.
 
   Parameters:
       child_list (list): List of Child objects to save.
@@ -53,7 +55,8 @@ def save_children(child_list, file_path="child.csv"):
 
 
 def find_child_index(child_list, child_id):
-  """Finds the index position of a child in child_list given their child ID.
+  """
+  Finds the index position of a child in child_list given their child ID.
 
   Parameters:
       child_list (list): List of Child objects.
@@ -77,7 +80,8 @@ def find_child_index(child_list, child_id):
 
 
 def add_child(child_list):
-  """Prompts user for child details, validates inputs, and appends a new Child object.
+  """
+  Prompts user for child details, validates inputs, and appends a new Child object.
 
   Parameters:
       child_list (list): Current list of Child objects.
@@ -123,7 +127,8 @@ def add_child(child_list):
 
 
 def remove_child(child_list):
-  """Removes a child record from child_list using their child ID.
+  """
+  Removes a child record from child_list using their child ID.
 
   Parameters:
       child_list (list): Current list of Child objects.
@@ -149,7 +154,8 @@ def remove_child(child_list):
 
 
 def check_in_child(child_list):
-  """Checks in a child by setting guardian name if child exists and is not checked in.
+  """
+  Checks in a child by setting guardian name if child exists and is not checked in.
 
   Parameters:
       child_list (list): Current list of Child objects.
@@ -192,7 +198,8 @@ def check_in_child(child_list):
 
 
 def check_out_child(child_list):
-  """Checks out a child by resetting guardian name if child exists and is checked in.
+  """
+  Checks out a child by resetting guardian name if child exists and is checked in.
 
   Parameters:
       child_list (list): Current list of Child objects.
@@ -224,7 +231,8 @@ def check_out_child(child_list):
 
 
 def view_all_children(child_list):
-  """Displays all children records and overall attendance summary counts.
+  """
+  Displays all children records and overall attendance summary counts.
 
   Parameters:
       child_list (list): Current list of Child objects.
@@ -266,7 +274,8 @@ def view_all_children(child_list):
 
 
 def main_menu():
-  """Displays main menu options and validates numeric choice input.
+  """
+  Displays main menu options and validates numeric choice input.
 
   Returns:
       int: Validated selection integer between 1 and 6.
@@ -304,7 +313,8 @@ def main_menu():
 
 
 def main():
-  """Entry point for YYC Daycare System.
+  """
+  Entry point for YYC Daycare System.
 
   Coordinates data loading, menu options, and saving.
   """
