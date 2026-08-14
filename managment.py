@@ -1,8 +1,23 @@
 # Imports the Child class from the Child.py File as a short form "ch"
 import child as ch
 
-def load_children(file_path):
-    pass
+def load_children(file_path="child.csv"):
+    """Loads data from csv file into a list of child objects"""
+
+
+    child_list = []
+
+    with open(file_path) as file:
+        child = file.read().splitlines()
+
+        for line in child:
+            if line.strip and not line.startswith("child_id"):
+                info = line.split(",")
+                kid = ch.Child(info[0], info[1], info[2], info[3])
+                child_list.append(kid)
+    return child_list
+
+    
 
 def save_children(file_path, child_list):
     pass
