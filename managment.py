@@ -57,6 +57,25 @@ def main():
     print(f"{"Welcome to YYC Daycare System":^40s}")
     print("*"*40)
 
+    selection = 0 
+    while selection != 6:
+        selection = main_menu()
+
+        match selection:
+            case 1:
+                add_child(child_list)
+            case 2:
+                remove_child(child_lsit)
+            case 3:
+                check_in_child(child_list)
+            case 4:
+                check_out_child(child_list)
+            case 5:
+                view_all_children(child_list)
+            case 6:
+                save_children(child_list)
+                print("Data saved. Goodbye. \n")
+
 
 
 # Checks if file is run directly by python, if so it will exicute the main function to start the application. 
