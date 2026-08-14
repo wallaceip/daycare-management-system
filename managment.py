@@ -60,7 +60,13 @@ def check_out_child(child_list):
     pass
 
 def view_all_children(child_list):
-    pass
+    """Displays a formatted menu of all children"""
+
+    if child_list != []:
+        for child in child_list:
+            print(child)
+    else:
+        print("No children records available")
 
 def main_menu():
     """Main menu display user selection validation"""
