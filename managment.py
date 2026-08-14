@@ -25,6 +25,31 @@ def check_out_child(child_list):
 def view_all_children(child_list):
     pass
 
+def main_menu():
+    """Main menu display user selection validation"""
+    main_menu_dict = {
+        1: "add child",
+        2: "remove child",
+        3: "check in child",
+        4: "check out child",
+        5: "view all children",
+        6: "exit",
+    }
+
+    selection = 0
+
+    while selection < 1 or selection > 6:
+        for key, value, in main_menu_dict.items():
+            print(f'{key}) {value}')
+
+        user_input = input('Select option')
+        if user_input.isdigit():
+            selection = int(user_input)
+        if selection < 1 or selection > 6:
+            print("invalid option.\n")
+    return selection
+        
+
 # Main function that will run on program start
 def main():
     """Program entry point for initialization and menu handling"""
