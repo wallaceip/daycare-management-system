@@ -25,6 +25,15 @@ def check_out_child(child_list):
 def view_all_children(child_list):
     pass
 
-
+# Main function that will run on program start
 def main():
-    pass
+    """Program entry point for initialization and menu handling"""
+    print('\n' + '*'*40)
+    print(f"{"Welcome to YYC Daycare System":^40s}")
+    print("*"*40)
+
+
+
+# Checks if file is run directly by python, if so it will exicute the main function to start the application. 
+if __name__ == "__main__":
+    main()
