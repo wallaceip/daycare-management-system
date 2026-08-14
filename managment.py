@@ -22,7 +22,7 @@ def load_children(file_path="child.csv"):
                 info = line.split(",")
 
                 # creates the child objects
-                kid = ch.Child(info[0], info[1], info[2], info[3])
+                kid = ch.Child(info[0], info[1], float(info[2]), info[3])
 
                 # adds the child objects to the child_list
                 child_list.append(kid)
