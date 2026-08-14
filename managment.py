@@ -48,7 +48,25 @@ def save_children(child_list, file_path="child.csv" ):
 
 
 def find_child_index(child_list, child_id):
-    pass
+
+    # initialize veriable
+    index = 0
+
+    # inialize variable and default if child not found
+    child_index = -1
+
+    # loop through list of child objects looking at the id, and stoping if there is a match
+    for child in child_list:
+        if child.get_child_id() == child_id:
+            child_index = index
+            break
+        index += 1
+
+    # returning the index number 
+    return child_index
+        
+
+
 
 def add_child(child_list):
     pass
