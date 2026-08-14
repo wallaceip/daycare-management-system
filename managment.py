@@ -40,7 +40,8 @@ def save_children(child_list, file_path="child.csv" ):
 
         # Loops through each child object and writes it as a formatted csv line
         for child in child_list:
-            file.write(f'{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n')       
+            line = (f'{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n')
+            file.write(line)       
 
     # Closes file to avoid data corruption or data leak
     file.close()
@@ -148,7 +149,7 @@ def main():
 
     # prints number children info currently in the system 
     child_list = load_children()
-    print(f"{len(child_list)} child record loaded.\n")
+    print(f"{len(child_list)} child records loaded.\n")
 
     # initial invalid choice to start loop 
     selection = 0 
