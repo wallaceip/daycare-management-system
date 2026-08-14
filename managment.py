@@ -69,10 +69,41 @@ def find_child_index(child_list, child_id):
 
 
 def add_child(child_list):
-    pass
+    """Add child to the list of children objects"""
+
+    child_id = input("Enter child ID: ").upper()
+
+    if find_child_index(child_list, child_id) == -1:
+
+        valid_age = ["Toddler", "Preschool", "School Age" ]
+        age_input = input("Enter age group: ")
+
+        if age_input in valid_age:
+            fee_input = float(input("Enter daily fee: "))
+
+            if fee_input > 0:
+
+                new_child = ch.Child(child_id, age_input, fee_input)
+
+                child_id.append(new_child)
+                print("Child added.\n")
+            else:
+                print("Fee must be greater than 0.\n")
+        else:
+            print(f"Age group must be one of {valid_age}\n")
+    else:
+        print("Child already exists.\n")
+    return child_list
+
+
+        
+
 
 def remove_child(child_list):
+    """Removes childs data from the csv file"""
     pass
+    
+    
 
 def check_in_child(child_list):
     pass
