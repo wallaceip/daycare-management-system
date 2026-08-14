@@ -62,11 +62,39 @@ def check_out_child(child_list):
 def view_all_children(child_list):
     """Displays a formatted menu of all children"""
 
+    # Title printed on new line
+    print('\nAll Children')
+
+    # checks for empty list and prints each child object in a formatted string if available
+
     if child_list != []:
         for child in child_list:
             print(child)
     else:
         print("No children records available")
+
+    # Counts number of children
+    total_children = len(child_list)
+
+    # initalizes how many children are checked in
+    num_checked_in = 0
+
+    # loops though children and Increments variable if the child is checked in
+    for child in child_list:
+        if child.is_present():
+            num_checked_in += 1
+
+    # Simple math to get the difference between total and num of checked in children
+    num_not_checked_in = (total_children - num_checked_in)
+
+    # Prints formatted summery and title
+    print(f"="*40)
+    print(f"{"SUMMERY":^40s}")
+    print(f"="*40)
+    print(f"Total Children: {total_children}")
+    print(f"Checked In: {num_checked_in}")
+    print(f"Not Checked In: {num_not_checked_in}\n")
+
 
 def main_menu():
     """Main menu display user selection validation"""
