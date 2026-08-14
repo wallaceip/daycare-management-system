@@ -57,11 +57,11 @@ def main_menu():
         for key, value, in main_menu_dict.items():
             print(f'{key}) {value}')
 
-        user_input = input('Select option')
+        user_input = input('Select option: ')
         if user_input.isdigit():
             selection = int(user_input)
         if selection < 1 or selection > 6:
-            print("invalid option: \n")
+            print("invalid option. \n")
     return selection
         
 
@@ -72,6 +72,9 @@ def main():
     print(f"{"Welcome to YYC Daycare System":^40s}")
     print("*"*40)
 
+    child_list = load_children()
+    print(f"{len(child_list)} child record loaded.")
+
     selection = 0 
     while selection != 6:
         selection = main_menu()
@@ -80,7 +83,7 @@ def main():
             case 1:
                 add_child(child_list)
             case 2:
-                remove_child(child_lsit)
+                remove_child(child_list)
             case 3:
                 check_in_child(child_list)
             case 4:
