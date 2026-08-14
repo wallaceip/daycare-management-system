@@ -71,28 +71,49 @@ def find_child_index(child_list, child_id):
 def add_child(child_list):
     """Add child to the list of children objects"""
 
+    # Takes input for the child id
     child_id = input("Enter child ID: ").upper()
 
+    # checks child id input against exisiting child id's
     if find_child_index(child_list, child_id) == -1:
 
+        # varible list to verify age group
         valid_age = ["Toddler", "Preschool", "School Age" ]
+
+        # takes age group input
         age_input = input("Enter age group: ")
 
+        # verifies age input
         if age_input in valid_age:
+
+            # takes input for fee
             fee_input = float(input("Enter daily fee: "))
 
+            # verifies fee input
             if fee_input > 0:
 
+                # creates new child object
                 new_child = ch.Child(child_id, age_input, fee_input)
 
-                child_id.append(new_child)
+                # appends child list with new child object
+                child_list.append(new_child)
+
+                # if everything validates and a new child is added, prints message below
                 print("Child added.\n")
+
+            # prints for invalid fee
             else:
                 print("Fee must be greater than 0.\n")
+
+        # prints for invalid age group
         else:
             print(f"Age group must be one of {valid_age}\n")
+
+    # prints for existing child id
     else:
         print("Child already exists.\n")
+
+    # returns appended child list
     return child_list
 
 
