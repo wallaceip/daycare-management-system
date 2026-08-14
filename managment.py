@@ -43,6 +43,9 @@ def save_children(child_list, file_path="child.csv" ):
             line = (f'{child.get_child_id()},{child.get_child_age()},{child.get_fee()},{child.get_guardian_name()}\n')
         file.write(line)
 
+    # Closes file to avoid data corruption or data leak
+    file.close()
+
 
 def find_child_index(child_list, child_id):
     pass
