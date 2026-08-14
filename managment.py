@@ -40,8 +40,7 @@ def save_children(child_list, file_path="child.csv" ):
 
         # Loops through each child object and writes it as a formatted csv line
         for child in child_list:
-            line = (f'{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n')
-        file.write(line)
+            file.write(f'{child.get_child_id()},{child.get_age_group()},{child.get_fee()},{child.get_guardian_name()}\n')       
 
     # Closes file to avoid data corruption or data leak
     file.close()
