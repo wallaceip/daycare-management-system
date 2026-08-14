@@ -73,7 +73,7 @@ def main():
     print("*"*40)
 
     child_list = load_children()
-    print(f"{len(child_list)} child record loaded.")
+    print(f"{len(child_list)} child record loaded.\n")
 
     selection = 0 
     while selection != 6:
