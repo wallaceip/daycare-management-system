@@ -32,8 +32,17 @@ def load_children(file_path="child.csv"):
 
     
 
-def save_children(file_path, child_list):
-    pass
+def save_children(child_list, file_path="child.csv" ):
+    """rewrites the csv file with the updates list of children objects"""
+
+    # opens the file in write mode, overwritting previous data
+    with open(file_path, "w") as file:
+
+        # Loops through each child object and writes it as a formatted csv line
+        for child in child_list:
+            line = (f'{child.get_child_id()},{child.get_child_age()},{child.get_fee()},{child.get_guardian_name()}\n')
+        file.write(line)
+
 
 def find_child_index(child_list, child_id):
     pass
