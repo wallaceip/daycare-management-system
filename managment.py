@@ -28,12 +28,12 @@ def view_all_children(child_list):
 def main_menu():
     """Main menu display user selection validation"""
     main_menu_dict = {
-        1: "add child",
-        2: "remove child",
-        3: "check in child",
-        4: "check out child",
-        5: "view all children",
-        6: "exit",
+        1: "Add Child",
+        2: "Remove Child",
+        3: "Check In Child",
+        4: "Check Out Child",
+        5: "View All Children",
+        6: "Exit",
     }
 
     selection = 0
@@ -46,7 +46,7 @@ def main_menu():
         if user_input.isdigit():
             selection = int(user_input)
         if selection < 1 or selection > 6:
-            print("invalid option.\n")
+            print("invalid option: \n")
     return selection
         
 
