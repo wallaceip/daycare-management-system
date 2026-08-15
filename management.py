@@ -94,13 +94,13 @@ def add_child(child_list):
   # Check if child ID is unique (not already present in list)
   if find_child_index(child_list, child_id_input) == -1:
     # Define list of valid age groups allowed by the daycare system
-    valid_age_group = ["Toddler", "Preschool", "School Age"]
+    VALID_AGE_GROUP = ["Toddler", "Preschool", "School Age"]
     age_group_input = input(
         "Enter age group: "
     )  # Prompt user to enter age group
 
     # Validate if entered age group is in the allowed list
-    if age_group_input in valid_age_group:
+    if age_group_input in VALID_AGE_GROUP:
       fee_input = float(
           input("Enter daily fee: ")
       )  # Prompt user for daily fee and convert to float
@@ -118,7 +118,7 @@ def add_child(child_list):
         )  # Error message for non-positive fee
     else:
       print(
-          f"Age group must be one of {valid_age_group}"
+          f"Age group must be one of {VALID_AGE_GROUP}"
       )  # Error message for invalid age group
   else:
     print("Child already exists.")  # Error message for non-unique child ID
